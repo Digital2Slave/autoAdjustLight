@@ -16,12 +16,12 @@ I analysis the formula of Yfinal by Python language with the help of numpy and m
 
     import numpy as np
     import matplotlib.pyplot as plt
-    Y = list(range(256))
-    Yinv = list(range(255,-1, -1))
-    x = list(range(256))
-    afaList = [1.0*min(m,n)/max(m,n) for (m,n) in zip(Y,Yinv)]
-    yfinal = [(1-afa)*m+afa*n for (m,n,afa) in zip(Y,Yinv,afaList)]
-    fig = plt.figure(figsize=(10,5), dpi=80)
+    Y = range(256)
+    Yinv = range(255, -1, -1)
+    x = range(256)
+    afaList = [1.0 * min(m, n) / max(m, n) for (m, n) in zip(Y, Yinv)]
+    yfinal = [(1 - afa) * m + afa * n for (m, n, afa) in zip(Y, Yinv, afaList)]
+    fig = plt.figure(figsize=(10, 5), dpi=80)
     ax1 = fig.add_subplot(111)
     plt.title("Auto adjust Y analysis")
     ax1.set_xlim(0, 128)
@@ -30,18 +30,18 @@ I analysis the formula of Yfinal by Python language with the help of numpy and m
     ax1.plot(x, Yinv, label="Yinv")
     ax1.plot(x, yfinal, label="Yfinal")
     # -----setting middle value-----
-    middle = np.full((256,1),128)
-    ax1.plot(list(middle),x)
+    middle = np.full((256, 1), 128)
+    ax1.plot(middle, x)
     # ------------------------------
     ax1.set_ylabel("Y(output)")
     ax1.set_xlabel("Y(input)")
-    ax1.legend(loc='upper left', prop={'size':10})
+    ax1.legend(loc='upper left', prop={'size': 10})
     ax1.grid(True)
     ax2 = ax1.twinx()
     ax2.set_ylabel("Afa(ratio)")
-    # ax2.set_ylim(0,1)
+    # ax2.set_ylim(0, 1)
     ax2.plot(x, afaList, marker='.', label="Afa")
-    ax2.legend(loc='upper right', prop={'size':10})
+    ax2.legend(loc='upper right', prop={'size': 10})
     plt.show()
 
 
