@@ -24,7 +24,7 @@ I analysis the formula of Yfinal by Python language with the help of numpy and m
     fig = plt.figure(figsize=(10, 5), dpi=80)
     ax1 = fig.add_subplot(111)
     plt.title("Auto adjust Y analysis")
-    ax1.set_xlim(0, 128)
+    ax1.set_xlim(0, 255)
     ax1.set_ylim(0, 255)
     ax1.plot(x, Y, label="Y")
     ax1.plot(x, Yinv, label="Yinv")
